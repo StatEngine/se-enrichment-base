@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["env", {
+      "useBuiltIns": true,
+      "targets": {
+        "node": "6.10"
+      }
+    }]
+  ],
+  "plugins": ["babel-plugin-transform-object-rest-spread"]
+}
