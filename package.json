@@ -1,5 +1,5 @@
 {
-  "name": "@statengine/se-enrichment-base",
+  "name": "se-enrichment-base",
   "version": "0.0.1",
   "description": "Base Enrichment Classes",
   "main": "lib",
