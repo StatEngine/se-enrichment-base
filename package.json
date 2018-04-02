@@ -1,5 +1,5 @@
 {
-  "name": "se-enrichment-base",
+  "name": "@statengine/se-enrichment-base",
   "version": "0.0.1",
   "description": "Base Enrichment Classes",
   "main": "lib",
@@ -12,6 +12,7 @@
     "prepare": "npm run compile"
   },
   "dependencies": {
+    "aws-sdk": "^2.219.1",
     "lodash": "^4.17.5",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"

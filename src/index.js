@@ -1,3 +1,4 @@
+const AWS = require('aws-sdk');
 const _ = require('lodash');
 const request = require('request-promise');
 
@@ -86,5 +87,26 @@ export class ArcGISServiceEnrichment extends Enrichment {
 
     return request(this.params)
       .then(res => res.features);
+  }
+}
+
+export class LambdaEnrichment extends Enrichment {
+  constructor({
+    src = {},
+    normalizedInput = {},
+    normalizedOutput = [],
+    params = {},
+  } = {}) {
+    super({ src, normalizedInput, normalizedOutput, params });
+  }
+
+  querySource(input) {
+    const lambda = new AWS.Lambda();
+    this.params.Payload = JSON.stringify(input);
+
+    return lambda.invoke(this.params).promise().then((res) => {
+      const payload = JSON.parse(res.Payload);
+      return payload.body ? JSON.parse(payload.body) : payload;
+    });
   }
 }

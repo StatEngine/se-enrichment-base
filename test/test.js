@@ -1,6 +1,10 @@
 import { expect } from 'chai';
 
-import { Enrichment, ArcGISServiceEnrichment } from '../src/';
+import {
+  Enrichment,
+  ArcGISServiceEnrichment,
+  LambdaEnrichment,
+} from '../src/';
 
 describe('Enrichment', () => {
   it('should export constructor', () => {
@@ -90,6 +94,13 @@ describe('ExampleEnrichment', () => {
 describe('ArcGISServiceEnrichment', () => {
   it('should export constructor', () => {
     const e = new ArcGISServiceEnrichment();
+    expect(e).to.be.an('object');
+  });
+});
+
+describe('LambdaEnrichment', () => {
+  it('should export constructor', () => {
+    const e = new LambdaEnrichment();
     expect(e).to.be.an('object');
   });
 });
