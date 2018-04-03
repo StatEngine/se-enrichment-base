@@ -54,13 +54,13 @@ class ExampleEnrichment extends Enrichment {
 
   // takes input.field1 and multiples by 2
   querySource(input) {
-    const d = Promise.defer();
+    const d = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(input.field1 * 2);
+      }, 10);
+    });
 
-    setTimeout(() => {
-      d.resolve(input.field1 * 2);
-    }, 10);
-
-    return d.promise;
+    return d;
   }
 
   // lets convert to a string for example
